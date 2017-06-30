@@ -4,6 +4,7 @@
  use App\Post;
  use App\User;
   use App\Role;
+  use App\Country;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -269,4 +270,35 @@ ELOQUENT Relationship
 
 // } );
 
+
+Route::get('/user/country',function (){
+
+	$country = Country::find(2); // id si 2 olan country al
+
+
+    dd($country->posts);
+    
+	// foreach ($country->posts as $post) { // users tablosunda country id si 2 olanların 
+	// 									// postlarını al					
+	// 	echo $post->title;
+	// 	# code...
+	// }
+
+});
+
+
+// Polymorphic Relations 
+
+Route::get( 'user/photos', function () {
+
+		$user = User::find(1);
+
+
+		foreach ($user->photos as $photo) {
+			# code...
+			return $photo;
+		}
+		
+
+});
 
